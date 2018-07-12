@@ -2,6 +2,7 @@ defmodule Y.Grain do
   use Ecto.Schema
   import Ecto.Changeset
 
+  #
   schema "grains" do
     field(:address, :string)
     field(:grade, :string)
