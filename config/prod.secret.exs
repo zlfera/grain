@@ -20,6 +20,6 @@ config :y, YWeb.Endpoint,
 config :y, Y.Repo,
   adapter: Ecto.Adapters.Postgres,
   url: System.get_env("DATABASE_URL"),
-  database: "my_app_prod",
-  pool_size: String.to_integer(System.get_env("POOL_SIZE") || "10"),
+  # database: "my_app_prod",
+  # pool_size: String.to_integer(System.get_env("POOL_SIZE") || "10"),
   ssl: true
