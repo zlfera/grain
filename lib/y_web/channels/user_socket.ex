@@ -19,6 +19,8 @@ defmodule YWeb.UserSocket do
     {:ok, socket}
   end
 
+  ## Transports
+  transport(:websocket, Phoenix.Transports.WebSocket, timeout: 45_000)
   # Socket id's are topics that allow you to identify all sockets for a given user:
   #
   #     def id(socket), do: "user_socket:#{socket.assigns.user_id}"
