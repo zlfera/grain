@@ -10,7 +10,6 @@ defmodule Mix.Tasks.Yy do
     {:ok, _} = Application.ensure_all_started(:y)
     {:ok, pid} = Agent.start_link(fn -> %{} end)
     u1(b(), pid)
-    # {:ok, kid} = Agent.start_link(fn -> [] end)
   end
 
   def a(dqqq) do
@@ -21,18 +20,6 @@ defmodule Mix.Tasks.Yy do
   end
 
   def s(d) do
-    # q = Agent.get(kid, & &1)
-
-    # e = Enum.any?(q, fn i -> i["requestAlias"] == j["requestAlias"] end)
-
-    # if e do
-    #  "over"
-    # else
-    #  Agent.update(kid, fn s -> [j | s] end)
-    # IO.inspect(Agent.get(kid, & &1))
-    # end
-    # IO.inspect(j)
-
     attr = %{
       market_name: "guojia",
       mark_number: d["requestAlias"],
@@ -47,9 +34,6 @@ defmodule Mix.Tasks.Yy do
       trantype: "拍卖"
     }
 
-    r = d["requestAlias"]
-    query = from(u in Grain, where: u.mark_number == ^r, select: u.mark_number)
-    Repo.all(query)
     changeset = Grain.changeset(%Grain{}, attr)
     Repo.insert(changeset)
   end
@@ -77,8 +61,8 @@ defmodule Mix.Tasks.Yy do
     dd = a(y)
 
     if dd["status"] == "yes" do
-      Enum.each(dd["rows"], fn j ->
-        j(j)
+      Enum.each(dd["rows"], fn jj ->
+        j(jj)
       end)
 
       grain(y, pid)

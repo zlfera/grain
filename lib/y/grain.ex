@@ -33,8 +33,7 @@ defmodule Y.Grain do
       :starting_price,
       :latest_price,
       :address,
-      :status,
-      :trantype
+      :status
     ])
     |> validate_required([
       :market_name,

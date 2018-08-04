@@ -5,6 +5,7 @@
 
 <section class="row">
      <h1>稻谷历史交易记录</h1>
+     <p><%= length @grains %></p>
   <table class='table table-bordered table-striped'>
     <thead>
       <tr>
@@ -33,8 +34,8 @@
     <tbody>
       <%= for redis <- @grains do %>
         <tr>
-          <td><%= redis.updated_at %></td>
-          <td><%= redis.address %></td>
+          <td><%= redis.updated_at |> NaiveDateTime.to_date %></td>
+          <td><%= redis.mark_number %></td>
           <td><%= redis.trantype %></td>
           <td><%= redis.variety %></td>
           <td><%= redis.grade %></td>
